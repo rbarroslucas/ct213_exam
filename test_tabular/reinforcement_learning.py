@@ -40,7 +40,7 @@ class RLAlgorithm:
     """
     Represents a model-free reinforcement learning algorithm.
     """
-    def __init__(self, num_states, num_actions, epsilon, alpha, gamma):
+    def __init__(self, num_states, num_actions, epsilon, alpha, gamma, epsilon_decay=0.98, epsilon_min=0.01):
         """
         Creates a model-free reinforcement learning algorithm.
 
@@ -57,6 +57,8 @@ class RLAlgorithm:
         """
         self.q = np.zeros(num_states + (num_actions,))
         self.epsilon = epsilon
+        self.epsilon_min = epsilon_min
+        self.epsilon_decay = epsilon_decay
         self.alpha = alpha
         self.gamma = gamma
 
@@ -70,6 +72,14 @@ class RLAlgorithm:
         :rtype: int.
         """
         return epsilon_greedy_action(self.q, state, self.epsilon)
+    
+    def update_epsilon(self):
+        """
+        Updates the epsilon used for epsilon-greedy action selection.
+        """
+        self.epsilon *= self.epsilon_decay
+        if self.epsilon < self.epsilon_min:
+            self.epsilon = self.epsilon_min
 
     def get_greedy_action(self, state):
         """
@@ -87,7 +97,7 @@ class RLAlgorithm:
 
 
 class Sarsa(RLAlgorithm):
-    def __init__(self, num_states, num_actions, epsilon, alpha, gamma):
+    def __init__(self, num_states, num_actions, epsilon, alpha, gamma, epsilon_decay=0.98, epsilon_min=0.01):
         super().__init__(num_states, num_actions, epsilon, alpha, gamma)
 
     def get_greedy_action(self, state):
@@ -107,7 +117,7 @@ class Sarsa(RLAlgorithm):
 
 
 class QLearning(RLAlgorithm):
-    def __init__(self, num_states, num_actions, epsilon, alpha, gamma):
+    def __init__(self, num_states, num_actions, epsilon, alpha, gamma, epsilon_decay=0.98, epsilon_min=0.01):
         super().__init__(num_states, num_actions, epsilon, alpha, gamma)
 
     def get_greedy_action(self, state):
@@ -115,3 +125,4 @@ class QLearning(RLAlgorithm):
 
     def learn(self, state, action, reward, next_state, next_action):
         self.q[(*state,action)] += self.alpha * (reward + self.gamma * np.max(self.q[next_state]) - self.q[(*state,action)])
+
