@@ -1,0 +1,14 @@
+Algorithm:  DoubleDQN
+Gamma:  0.99
+Learning Rate:  5e-05
+Start Epsilon:  1.0
+Epsilon Decay:  0.998
+Final Epsilon:  0.01
+Buffer Size:  65536
+Batch Size:  64
+Min episodes to solve (train): 927
+Success rate: 97.00%
+Training mean: 144.71187366469783
+Training stdv: 153.45571368726573
+Test mean: 269.18911542999996
+Test stdv: 35.888842841785646

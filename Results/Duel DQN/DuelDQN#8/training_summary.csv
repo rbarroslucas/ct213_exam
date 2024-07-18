@@ -1,0 +1,11 @@
+Algorithm: DuelDQN
+Number of Episodes: 2000
+Gamma: 0.99
+Epsilon Initial: 0.5
+Epsilon Final: 0.01
+Epsilon Decay: 0.998
+Learning Rate: 5e-05
+Batch Size: 64
+Buffer Size: 65536
+Elapsed Time (seconds): 7482.036196470261
+Total Steps: 754572

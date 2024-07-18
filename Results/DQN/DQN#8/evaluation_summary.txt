@@ -1,0 +1,14 @@
+Algorithm:  DQN
+Gamma:  0.99
+Learning Rate:  5e-05
+Start Epsilon:  0.5
+Epsilon Decay:  0.998
+Final Epsilon:  0.01
+Buffer Size:  65536
+Batch Size:  64
+Min episodes to solve (train): 565
+Success rate: 96.00%
+Training mean: 193.6039082882668
+Training stdv: 133.31923281838218
+Test mean: 271.38778767
+Test stdv: 34.740566317647705

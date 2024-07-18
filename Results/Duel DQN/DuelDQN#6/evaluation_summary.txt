@@ -1,0 +1,14 @@
+Algorithm:  DuelDQN
+Gamma:  0.99
+Learning Rate:  0.0001
+Start Epsilon:  1.0
+Epsilon Decay:  0.998
+Final Epsilon:  0.01
+Buffer Size:  65536
+Batch Size:  64
+Min episodes to solve (train): 901
+Success rate: 99.00%
+Training mean: 152.5186672412339
+Training stdv: 160.27348140599227
+Test mean: 276.28516263999995
+Test stdv: 21.594486784578038

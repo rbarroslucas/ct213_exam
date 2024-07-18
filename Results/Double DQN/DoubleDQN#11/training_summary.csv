@@ -1,0 +1,11 @@
+Algorithm: DoubleDQN
+Number of Episodes: 2000
+Gamma: 0.99
+Epsilon Initial: 0.5
+Epsilon Final: 0.01
+Epsilon Decay: 0.998
+Learning Rate: 0.0001
+Batch Size: 64
+Buffer Size: 65536
+Elapsed Time (seconds): 7702.9818251132965
+Total Steps: 733703
