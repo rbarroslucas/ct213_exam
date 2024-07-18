@@ -6,19 +6,31 @@ from tensorflow.keras import models, layers, optimizers, losses
 
 from agents.RL_algorithm import RLAlgorithm
 
-
 class DuelDQNagent(RLAlgorithm):
     '''
     Class that represents the agent that will interact with the environment
     '''
 
     def __init__(self, state_size, action_size, hyperparams):
+        '''
+        Initializes the DuelDQNagent.
+
+        :param state_size: The size of the state space.
+        :type state_size: int
+        :param action_size: The size of the action space.
+        :type action_size: int
+        :param hyperparams: Hyperparameters for the agent.
+        :type hyperparams: dict
+        '''
         super().__init__(state_size, action_size, hyperparams)
         self.policyNN = self.build_model()
 
     def build_model(self):
         '''
-        Builds the neural network model for the agent
+        Builds the neural network model for the agent.
+
+        :return: The compiled neural network model.
+        :rtype: tf.keras.Model
         '''
         inputs = layers.Input(shape=(self.state_size,))
         dense1 = layers.Dense(256, activation='relu')(inputs)
@@ -41,7 +53,12 @@ class DuelDQNagent(RLAlgorithm):
 
     def learn_replay(self, batch_size):
         '''
-        Trains the agent using the experience replay technique
+        Trains the agent using the experience replay technique.
+
+        :param batch_size: The size of the minibatch to sample from the replay buffer.
+        :type batch_size: int
+        :return: The loss value from the training step.
+        :rtype: float
         '''
         # Sample a minibatch from the replay buffer
         minibatch = random.sample(self.buffer, batch_size)
@@ -77,15 +94,24 @@ class DuelDQNagent(RLAlgorithm):
 
     def save_model(self, name):
         '''
-        Saves the model to a file
+        Saves the model to a file.
+
+        :param name: The name of the file to save the model to.
+        :type name: str
         '''
         self.policyNN.save(name)
 
     def load_model(self, name):
         '''
-        Loads the model from a file
+        Loads the model from a file.
+
+        :param name: The name of the file to load the model from.
+        :type name: str
         '''
         self.policyNN.load_weights(name)
 
     def update_target_network(self):
+        '''
+        Just to mantain the same interface as the other agents, but it is not necessary for DuelDQN
+        '''
         pass

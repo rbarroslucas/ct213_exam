@@ -3,11 +3,11 @@
 ALGORITHM = 'DQN'
 
 # Set visual and gpu parameters
-RENDER_MODE = None # 'human' or None
+RENDER_MODE = 'human' # 'human' or None
 USE_GPU = False
 RENDER = False
 TRAIN_EPISODES = 2000
-TEST_EPISODES = 100
+TEST_EPISODES = 10
 fig_format = 'png'
 
 ID = 'LunarLander-v2'

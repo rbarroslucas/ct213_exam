@@ -10,29 +10,29 @@ Luiz Felipe Vezzali de Paula (1° AER)
 
 Mateus Pereira Alves (1° AESP)
 
+GitHub: https://github.com/rbarroslucas/ct213_exam
+
 ## Project goal
 
 This project aims to solve the Lunar Lander environment with DQN, Double DQN and Dueling DQN algorithms. The project's paper can be found between the files.
+
 
 ## Folder `Results`
 
 The folder `Results` presents some trained agents with the raw results
 
-#### 
 
 ## Environment Setup
 
 To set up the Conda environment, follow these steps:
 
-1.  Create the Conda environment using the existing one:
-    ```sh
-    conda env create -f exam_env.yml
-    ```
+1.  Create the Conda environment using the existing one using anaconda navigatir by one of the two .yaml files (prefer the ct_exam.yaml) using Python 3.10.9
 
-3. Activate the environment:
+2. Activate the environment:
     ```sh
     conda activate exam_env
     ```
+**obs: The CT213 environment (from classroom) was observed to work with all dependencies in the project**
 
 ## Running the Project
 
